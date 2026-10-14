@@ -1,0 +1,46 @@
+## Problem
+
+Warehouse stock was tracked manually. Counts were written down and later re-entered into other systems, which made stock levels slow to update and easy to get wrong. Operations staff needed a way to record stock movements on the warehouse floor, as they happened.
+
+{/* TODO: add concrete numbers if available (e.g. number of SKUs, warehouses, staff, time spent on stock takes before/after). */}
+
+## My role
+
+Senior Software Engineer. I designed and built the handheld application and the Node.js backend behind it, including the API, the data model, and the deployment.
+
+## Architecture
+
+<Flow
+  steps={[
+    { label: "Handheld app", note: "Floor staff record stock in / out / counts" },
+    { label: "REST API", note: "Node.js services, validation, auth" },
+    { label: "Data layer", note: "SQL / NoSQL via ORM models" },
+    { label: "Web app", note: "React dashboard for stock levels" },
+  ]}
+/>
+
+Services ran as Docker containers, deployed with Kubernetes on AWS.
+
+## Key decisions
+
+- **API-first backend.** A RESTful API in Node.js served both the handheld app and the web tools, so business rules lived in one place.
+- **ORM-based data layer.** Modelling stock, locations, and movements through an ORM kept the schema explicit and migrations reviewable.
+- **Containers from day one.** Docker images and Kubernetes manifests made environments reproducible and deployments repeatable.
+- **Tests before release.** Unit tests and test automation caught regressions before they reached the warehouse floor.
+
+## Tech stack
+
+Node.js · React · SQL / NoSQL · ORM · Docker · Kubernetes · AWS
+
+## Outcome
+
+The handheld app replaced manual inventory tracking for warehouse operations staff, so stock movements were captured at the point of work instead of being re-keyed later.
+
+{/* TODO: add measurable impact (e.g. stock-take time saved, error rate, adoption). */}
+
+## Lessons
+
+- Floor tools live or die on speed: every extra tap is friction for staff who are carrying stock.
+- Putting validation in the API, not just the client, kept data clean across every app that used it.
+
+> Details are kept general because this was internal company software. Diagrams describe the architecture rather than showing proprietary screens.

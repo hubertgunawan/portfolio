@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hubert Gunawan — Software &amp; AI Engineer</title>
+<!-- Google Fonts: Inter & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration verbatim from Design System -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-dim": "#111319",
+            "on-background": "#e1e2ea",
+            "primary-muted": "#16243A",
+            "tertiary-fixed": "#ffddb5",
+            "tertiary": "#3FB950",
+            "secondary": "#bfc7d3",
+            "surface": "#111419",
+            "primary": "#5B9DFF",
+            "on-tertiary": "#462b00",
+            "on-surface": "#E6E8EB",
+            "border": "#232830",
+            "on-tertiary-fixed-variant": "#643f00",
+            "border-strong": "#323844",
+            "surface-container-highest": "#32353b",
+            "on-secondary-container": "#aeb6c1",
+            "outline-variant": "#414752",
+            "on-secondary": "#29313a",
+            "primary-container": "#5b9dff",
+            "on-primary": "#003063",
+            "on-surface-variant": "#c1c6d4",
+            "primary-fixed": "#d6e3ff",
+            "on-tertiary-container": "#4b2e00",
+            "outline": "#8b919e",
+            "on-primary-container": "#00346a",
+            "neutral": "#0B0D10",
+            "on-error-container": "#ffdad6",
+            "success": "#3FB950",
+            "tertiary-fixed-dim": "#ffb958",
+            "tertiary-container": "#d88d00",
+            "on-surface-muted": "#9BA3AE",
+            "surface-raised": "#171B21",
+            "primary-hover": "#7DB2FF",
+            "inverse-surface": "#e1e2ea",
+            "surface-container-high": "#272a30",
+            "surface-tint": "#a9c7ff",
+            "inverse-primary": "#005db7",
+            "inverse-on-surface": "#2e3037",
+            "error": "#F85149",
+            "surface-container": "#1d2026",
+            "on-tertiary-fixed": "#2a1800",
+            "secondary-fixed": "#dbe3ef",
+            "error-container": "#93000a",
+            "secondary-container": "#404751",
+            "on-secondary-fixed-variant": "#404751",
+            "warning": "#D29922",
+            "primary-fixed-dim": "#a9c7ff",
+            "surface-variant": "#32353b",
+            "surface-container-low": "#191c22",
+            "on-primary-fixed": "#001b3d",
+            "surface-bright": "#363940",
+            "background": "#0B0D10",
+            "on-primary-fixed-variant": "#00468c",
+            "on-secondary-fixed": "#141c25",
+            "secondary-fixed-dim": "#bfc7d3",
+            "on-surface-subtle": "#6B7380",
+            "on-error": "#690005",
+            "surface-container-lowest": "#0b0e14"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Inter", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "code": ["JetBrains Mono", "monospace"],
+            "h1": ["Inter", "sans-serif"],
+            "h2": ["Inter", "sans-serif"],
+            "display": ["Inter", "sans-serif"],
+            "label": ["JetBrains Mono", "monospace"],
+            "h3": ["Inter", "sans-serif"]
+          },
+          "fontSize": {
+            "body-lg": ["18px", { "lineHeight": "1.65", "fontWeight": "400" }],
+            "body-sm": ["14px", { "lineHeight": "1.55", "fontWeight": "400" }],
+            "body-md": ["16px", { "lineHeight": "1.65", "fontWeight": "400" }],
+            "code": ["14px", { "lineHeight": "1.6", "fontWeight": "400" }],
+            "h1": ["40px", { "lineHeight": "1.15", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "h2": ["28px", { "lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label": ["13px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "h3": ["20px", { "lineHeight": "1.35", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Custom precise terminal scroll & selection */
+    ::selection {
+      background-color: #16243A;
+      color: #5B9DFF;
+    }
+    .material-symbols-outlined {
+      font-size: 18px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased font-body-md min-h-screen selection:bg-primary-muted selection:text-primary">
+<!-- 1. STICKY TOP NAV -->
+<header class="sticky top-0 w-full z-50 bg-surface/90 dark:bg-surface/90 backdrop-blur-md border-b border-border">
+<div class="max-w-[1120px] mx-auto px-space-lg flex justify-between items-center h-14">
+<div class="flex items-center gap-8">
+<!-- Monospace Brand Logo -->
+<a class="font-code text-body-md font-semibold text-on-surface tracking-tight hover:text-primary transition-colors duration-150" href="#hero">
+          hubert.gunawan
+        </a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-on-surface font-code text-label border-b border-primary pb-1 transition-colors duration-150" href="#hero">Home</a>
+<a class="text-on-surface-muted font-code text-label hover:text-on-surface hover:border-border-strong transition-colors duration-150" href="#projects">Projects</a>
+<a class="text-on-surface-muted font-code text-label hover:text-on-surface hover:border-border-strong transition-colors duration-150" href="#about">About</a>
+<a class="text-on-surface-muted font-code text-label hover:text-on-surface hover:border-border-strong transition-colors duration-150" href="#resume">Resume</a>
+<a class="text-on-surface-muted font-code text-label hover:text-on-surface hover:border-border-strong transition-colors duration-150 inline-flex items-center gap-1" href="#blog">
+            Blog <span class="text-on-surface-subtle">↗</span>
+</a>
+</nav>
+</div>
+<!-- Trailing Action -->
+<div class="flex items-center gap-3">
+<a aria-label="Terminal Source" class="hidden sm:inline-flex items-center justify-center w-8 h-8 rounded-xl border border-border bg-surface hover:border-border-strong text-on-surface-muted hover:text-on-surface transition-colors duration-150" href="https://github.com" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</a>
+<a class="inline-flex items-center justify-center px-4 py-1.5 rounded-xl bg-primary text-neutral font-code text-label font-semibold hover:bg-primary-hover transition-colors duration-150" href="#contact">
+          Contact
+        </a>
+</div>
+</div>
+</header>
+<!-- MAIN CANVAS CONTAINER -->
+<main class="max-w-[1120px] mx-auto px-space-lg space-y-24 pt-12 pb-24">
+<!-- 2. HERO SECTION -->
+<section class="pt-6 pb-4" id="hero">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+<!-- Hero Left Column (7 cols) -->
+<div class="lg:col-span-7 flex flex-col items-start">
+<!-- Status Pill Badge -->
+<div class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-primary-muted border border-border mb-6">
+<span class="w-2 h-2 rounded-full bg-success animate-pulse"></span>
+<span class="font-code text-label text-on-surface font-normal">Open to Software Engineer &amp; AI Engineer roles · Surabaya, Indonesia</span>
+</div>
+<!-- Headline -->
+<h1 class="font-display text-display text-on-surface tracking-tight mb-4">
+            Hubert Gunawan
+          </h1>
+<!-- Subheadline -->
+<p class="font-h3 text-h3 text-on-surface-muted font-medium mb-4 leading-snug">
+            Software &amp; AI Engineer building reliable backends, full-stack apps, and AI agents.
+          </p>
+<!-- Body Description -->
+<p class="font-body-md text-body-md text-on-surface-muted max-w-xl mb-8 leading-relaxed">
+            3+ years designing REST APIs, databases, and containerized services with Node.js, React, and AWS. Now building AI agents that run in production, like the one that writes my blog every day.
+          </p>
+<!-- Actions Row -->
+<div class="flex flex-wrap items-center gap-3">
+<a class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-primary text-neutral font-body-sm font-semibold hover:bg-primary-hover transition-colors duration-150" href="#projects">
+              View Projects
+            </a>
+<a class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl bg-transparent border border-border text-on-surface font-body-sm font-medium hover:border-border-strong hover:bg-surface-raised transition-colors duration-150" href="#resume">
+              Download Resume
+            </a>
+<a class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl text-on-surface-muted font-body-sm font-medium hover:text-on-surface transition-colors duration-150" href="#contact">
+              Contact
+            </a>
+<a aria-label="GitHub Profile" class="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border text-on-surface-muted hover:text-on-surface hover:border-border-strong hover:bg-surface-raised transition-colors duration-150" href="https://github.com" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+</a>
+</div>
+</div>
+<!-- Hero Right Column: Signature Terminal Card (5 cols) -->
+<div class="lg:col-span-5 w-full">
+<div class="w-full bg-surface border border-border rounded-full p-0 overflow-hidden font-code">
+<!-- Terminal Header -->
+<div class="px-4 py-3 bg-surface-raised border-b border-border flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-border-strong"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-border-strong"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-border-strong"></div>
+</div>
+<span class="text-on-surface-subtle text-label">bash — 80x24</span>
+<span class="w-8"></span>
+</div>
+<!-- Terminal Body -->
+<div class="p-5 text-code space-y-3 bg-surface">
+<div class="flex items-center gap-2">
+<span class="text-on-surface-subtle">$</span>
+<span class="text-on-surface">curl haheng.au/api/hubert</span>
+</div>
+<div>
+<span class="text-success font-semibold">200 OK</span>
+</div>
+<!-- Formatted JSON Block -->
+<div class="pl-2 border-l border-border space-y-1 text-label">
+<div><span class="text-on-surface-subtle">{</span></div>
+<div class="pl-4">
+<span class="text-primary">"role"</span><span class="text-on-surface-subtle">:</span> <span class="text-on-surface">"Software &amp; AI Engineer"</span><span class="text-on-surface-subtle">,</span>
+</div>
+<div class="pl-4">
+<span class="text-primary">"stack"</span><span class="text-on-surface-subtle">:</span> <span class="text-on-surface-subtle">[</span>
+<span class="text-on-surface">"Node.js"</span><span class="text-on-surface-subtle">,</span>
+<span class="text-on-surface">"React"</span><span class="text-on-surface-subtle">,</span>
+<span class="text-on-surface">"AWS"</span><span class="text-on-surface-subtle">,</span>
+<span class="text-on-surface">"Docker"</span><span class="text-on-surface-subtle">,</span>
+<span class="text-on-surface">"Kubernetes"</span>
+<span class="text-on-surface-subtle">],</span>
+</div>
+<div class="pl-4">
+<span class="text-primary">"focus"</span><span class="text-on-surface-subtle">:</span> <span class="text-on-surface-subtle">[</span>
+<span class="text-on-surface">"AI agents"</span><span class="text-on-surface-subtle">,</span>
+<span class="text-on-surface">"ML"</span>
+<span class="text-on-surface-subtle">],</span>
+</div>
+<div class="pl-4">
+<span class="text-primary">"status"</span><span class="text-on-surface-subtle">:</span> <span class="text-on-surface">"open_to_work"</span>
+</div>
+<div><span class="text-on-surface-subtle">}</span></div>
+</div>
+<!-- Real-time Agent Log -->
+<div class="pt-3 border-t border-border flex items-center gap-2 text-label text-on-surface-subtle">
+<span class="text-primary-container">[agent]</span>
+<span>published post → blog.haheng.au</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. ABOUT SECTION -->
+<section class="pt-4" id="about">
+<div class="max-w-3xl">
+<div class="font-code text-label text-primary mb-2">01 · About</div>
+<h2 class="font-h2 text-h2 text-on-surface tracking-tight mb-5">About me</h2>
+<p class="font-body-md text-body-md text-on-surface-muted leading-relaxed mb-6">
+          Software engineer with 3+ years of experience designing and building backend and full-stack web applications using Node.js, React, and AWS. Experienced in RESTful API design, SQL/NoSQL database architecture, and deploying containerized services with Docker and Kubernetes.
+        </p>
+<a class="inline-flex items-center gap-1.5 font-code text-label text-primary hover:text-primary-hover transition-colors duration-150" href="#experience">
+          More about me <span class="text-body-md">→</span>
+</a>
+</div>
+</section>
+<!-- 4. SKILLS SECTION -->
+<section class="pt-4" id="skills">
+<div class="font-code text-label text-primary mb-2">02 · Skills</div>
+<h2 class="font-h2 text-h2 text-on-surface tracking-tight mb-8">Technical expertise</h2>
+<!-- 5-Card Responsive Bento Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Skill 1 -->
+<div class="bg-surface border border-border hover:border-border-strong rounded-full p-space-lg transition-colors duration-150">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-lg bg-surface-raised border border-border flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface">Languages &amp; Frameworks</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-subtle mb-4">Core languages and runtime platforms for building distributed server apps.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2.5 py-1 bg-surface-raised border border-border rounded-lg text-on-surface-muted font-code text-label">JavaScript</span>
+<span class="px-2.5 py-1 bg-surface-raised border border-border rounded-lg text-on-surface-muted font-code text-label">Node.js</span>
+<span class="px-2.5 py-1 bg-surface-raised border border-border rounded-lg text-on-surface-muted font-code text-label">React.js</span>
+</div>
+</div>
+<!-- Skill 2 -->
+<div class="bg-surface border border-border hover:border-border-strong rounded-full p-space-lg transition-colors duration-150">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-lg bg-surface-raised border border-border flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface">Databases</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-subtle mb-4">Schema design, query optimization, and persistent relational data storage.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2.5 py-1 bg-surface-raised border border-border rounded-lg text-on-surface-muted font-code text-label">SQL</span>
+<span class="px-2.5 py-1 bg-surface-raised border border-border rounded-lg text-on-surface-muted font-code text-label">NoSQL</span>
+<span class="px-2.5 py-1 bg-surface-raised border border-border rounded-lg text-on-surface-muted font-code text-label">ORM data modeling</span>
+</div>
+</div>
+<!-- Skill 3 -->
+<div class="bg-surface border border-border hover:border-border-strong rounded-full p-space-lg transition-colors duration-150">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-lg bg-surface-raised border border-border flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="cloud">cloud</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface">Cloud &amp; DevOps</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-subtle mb-4">Infrastructure as code, microservices orchestration, and CI/CD pipelines.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2.5 py-1 bg-surface-raised border border-border rounded-lg text-on-surface-muted font-code text-label">AWS</span>
+<span class="px-2.5 py-1 bg-surface-raised border border-border rounded-lg text-on-surface-muted font-code text-label">Docker</span>
+<span class="px-2.5 py-1 bg-surface-raised border border-border rounded-lg text-on-surface-muted font-code text-label">Kubernetes</span>
+<span class="px-2.5 py-1 bg-surface-raised border border-border rounded-lg text-on-surface-muted font-code text-label">Git</span>
+</div>
+</div>
+<!-- Skill 4 -->
+<div class="bg-surface border border-border hover:border-border-strong rounded-full p-space-lg transition-colors duration-150 lg:col-span-2">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-lg bg-surface-raised border border-border flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="memory">memory</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface">AI &amp; Machine Learning</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-subtle mb-4">Developing autonomous agents and deep neural models for sequence classification and spatial inference.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2.5 py-1 bg-surface-raised border border-border rounded-lg text-on-surface-muted font-code text-label">AI Agents</span>
+<span class="px-2.5 py-1 bg-surface-raised border border-border rounded-lg text-on-surface-muted font-code text-label">Machine Learning</span>
+<span class="px-2.5 py-1 bg-surface-raised border border-border rounded-lg text-on-surface-muted font-code text-label">Deep Learning (LSTM)</span>
+<span class="px-2.5 py-1 bg-surface-raised border border-border rounded-lg text-on-surface-muted font-code text-label">Computer Vision / rPPG</span>
+</div>
+</div>
+<!-- Skill 5 -->
+<div class="bg-surface border border-border hover:border-border-strong rounded-full p-space-lg transition-colors duration-150">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-lg bg-surface-raised border border-border flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface">Practices</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-subtle mb-4">Rigorous engineering standards for scalable web backends.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2.5 py-1 bg-surface-raised border border-border rounded-lg text-on-surface-muted font-code text-label">RESTful API Design</span>
+<span class="px-2.5 py-1 bg-surface-raised border border-border rounded-lg text-on-surface-muted font-code text-label">Database Design</span>
+<span class="px-2.5 py-1 bg-surface-raised border border-border rounded-lg text-on-surface-muted font-code text-label">Unit Testing &amp; Test Automation</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. EXPERIENCE TIMELINE SECTION -->
+<section class="pt-4" id="experience">
+<div class="font-code text-label text-primary mb-2">03 · Experience</div>
+<h2 class="font-h2 text-h2 text-on-surface tracking-tight mb-10">Work experience</h2>
+<div class="relative pl-6 sm:pl-8 border-l border-border space-y-12 ml-2">
+<!-- Experience Node 1 -->
+<div class="relative group">
+<!-- Timeline Node Point -->
+<div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full bg-background border-2 border-primary"></div>
+<div class="bg-surface border border-border hover:border-border-strong rounded-full p-space-lg transition-colors duration-150">
+<div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+<div class="flex items-baseline gap-2 flex-wrap">
+<span class="font-h3 text-h3 text-on-surface">Senior Software Engineer</span>
+<span class="text-on-surface-subtle">·</span>
+<span class="font-body-md text-body-md text-on-surface-muted">PT. Mitra Mulia Makmur</span>
+</div>
+<span class="font-code text-label text-on-surface-subtle">06/2020 – 10/2023</span>
+</div>
+<!-- Bullet points -->
+<ul class="space-y-2 mt-4 text-body-md text-on-surface-muted">
+<li class="flex items-start gap-2.5">
+<span class="text-on-surface-subtle mt-1.5 leading-none">•</span>
+<span>Designed and maintained REST APIs and backend microservices using Node.js</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="text-on-surface-subtle mt-1.5 leading-none">•</span>
+<span>Built responsive React web applications from architectural scratch through production deployment</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="text-on-surface-subtle mt-1.5 leading-none">•</span>
+<span>Engineered handheld warehouse stock management application streamlining inventory tracking</span>
+</li>
+</ul>
+<!-- Details toggle button -->
+<div class="mt-5 pt-4 border-t border-border flex items-center justify-between">
+<button class="font-code text-label text-primary hover:text-primary-hover flex items-center gap-1" onclick="toggleDetails('details-1', this)">
+<span class="label-text">Show details</span>
+<span class="material-symbols-outlined text-[16px] transition-transform duration-150">expand_more</span>
+</button>
+<span class="font-code text-label text-on-surface-subtle">Production Stack: Node.js, Express, React, MySQL</span>
+</div>
+<!-- Hidden details compartment -->
+<div class="hidden mt-4 pt-4 border-t border-border font-body-sm text-on-surface-muted space-y-2" id="details-1">
+<p>Achieved 99.9% uptime for core warehouse transaction processing across three distribution centers. Replaced error-prone paper workflows with mobile barcode-scanning terminals running on a secured local subnet.</p>
+</div>
+</div>
+</div>
+<!-- Experience Node 2 -->
+<div class="relative group">
+<!-- Timeline Node Point -->
+<div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full bg-background border-2 border-border-strong group-hover:border-primary transition-colors duration-150"></div>
+<div class="bg-surface border border-border hover:border-border-strong rounded-full p-space-lg transition-colors duration-150">
+<div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+<div class="flex items-baseline gap-2 flex-wrap">
+<span class="font-h3 text-h3 text-on-surface">Assistant Lecturer</span>
+<span class="text-on-surface-subtle">·</span>
+<span class="font-body-md text-body-md text-on-surface-muted">Institut Sains Dan Teknologi Terpadu Surabaya</span>
+</div>
+<span class="font-code text-label text-on-surface-subtle">09/2017 – 06/2020</span>
+</div>
+<!-- Bullet points -->
+<ul class="space-y-2 mt-4 text-body-md text-on-surface-muted">
+<li class="flex items-start gap-2.5">
+<span class="text-on-surface-subtle mt-1.5 leading-none">•</span>
+<span>Led laboratory sessions and guided students in software engineering fundamentals</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="text-on-surface-subtle mt-1.5 leading-none">•</span>
+<span>Designed and developed comprehensive student registration web application</span>
+</li>
+</ul>
+<!-- Details toggle button -->
+<div class="mt-5 pt-4 border-t border-border flex items-center justify-between">
+<button class="font-code text-label text-primary hover:text-primary-hover flex items-center gap-1" onclick="toggleDetails('details-2', this)">
+<span class="label-text">Show details</span>
+<span class="material-symbols-outlined text-[16px] transition-transform duration-150">expand_more</span>
+</button>
+<span class="font-code text-label text-on-surface-subtle">Academic Mentorship &amp; Architecture</span>
+</div>
+<div class="hidden mt-4 pt-4 border-t border-border font-body-sm text-on-surface-muted space-y-2" id="details-2">
+<p>Instructed over 150 undergraduate students through hands-on coursework covering data structures, relational databases, algorithm analysis, and Object-Oriented Programming (OOP) paradigms.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. FEATURED PROJECTS SECTION -->
+<section class="pt-4" id="projects">
+<div class="font-code text-label text-primary mb-2">04 · Projects</div>
+<h2 class="font-h2 text-h2 text-on-surface tracking-tight mb-8">Featured work</h2>
+<!-- 3-Column Card Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface border border-border hover:border-border-strong rounded-full p-space-lg flex flex-col justify-between transition-colors duration-150">
+<div>
+<span class="font-code text-label text-on-surface-subtle font-medium">SOFTWARE</span>
+<h3 class="font-h3 text-h3 text-on-surface mt-2 mb-3">Warehouse Stock Management</h3>
+<p class="font-body-sm text-body-sm text-on-surface-muted mb-6 leading-relaxed">
+              A handheld inventory app and Node.js backend that replaced manual stock tracking.
+            </p>
+</div>
+<div>
+<div class="flex flex-wrap gap-1.5 mb-6">
+<span class="px-2 py-0.5 bg-surface-raised border border-border rounded-lg text-on-surface-subtle font-code text-[12px]">Node.js</span>
+<span class="px-2 py-0.5 bg-surface-raised border border-border rounded-lg text-on-surface-subtle font-code text-[12px]">React</span>
+<span class="px-2 py-0.5 bg-surface-raised border border-border rounded-lg text-on-surface-subtle font-code text-[12px]">SQL</span>
+<span class="px-2 py-0.5 bg-surface-raised border border-border rounded-lg text-on-surface-subtle font-code text-[12px]">Docker</span>
+</div>
+<a class="inline-flex items-center gap-1 font-code text-label text-primary hover:text-primary-hover transition-colors duration-150" href="#projects">
+              Read case study <span>→</span>
+</a>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface border border-border hover:border-border-strong rounded-full p-space-lg flex flex-col justify-between transition-colors duration-150">
+<div>
+<span class="font-code text-label text-on-surface-subtle font-medium">AI AGENTS</span>
+<h3 class="font-h3 text-h3 text-on-surface mt-2 mb-3">AI-Powered Daily Blog</h3>
+<p class="font-body-sm text-body-sm text-on-surface-muted mb-6 leading-relaxed">
+              An autonomous pipeline of AI agents that writes and publishes a new post on blog.haheng.au every day.
+            </p>
+</div>
+<div>
+<div class="flex flex-wrap gap-1.5 mb-6">
+<span class="px-2 py-0.5 bg-surface-raised border border-border rounded-lg text-on-surface-subtle font-code text-[12px]">AI Agents</span>
+<span class="px-2 py-0.5 bg-surface-raised border border-border rounded-lg text-on-surface-subtle font-code text-[12px]">LLM</span>
+<span class="px-2 py-0.5 bg-surface-raised border border-border rounded-lg text-on-surface-subtle font-code text-[12px]">Automation</span>
+</div>
+<a class="inline-flex items-center gap-1 font-code text-label text-primary hover:text-primary-hover transition-colors duration-150" href="#projects">
+              Read case study <span>→</span>
+</a>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface border border-border hover:border-border-strong rounded-full p-space-lg flex flex-col justify-between transition-colors duration-150">
+<div>
+<span class="font-code text-label text-on-surface-subtle font-medium">MACHINE LEARNING</span>
+<h3 class="font-h3 text-h3 text-on-surface mt-2 mb-3">Deepfake Detection (LSTM + rPPG)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-muted mb-6 leading-relaxed">
+              A thesis model that spots deepfake videos by reading heart-rate signals from facial skin.
+            </p>
+</div>
+<div>
+<div class="flex flex-wrap gap-1.5 mb-6">
+<span class="px-2 py-0.5 bg-surface-raised border border-border rounded-lg text-on-surface-subtle font-code text-[12px]">LSTM</span>
+<span class="px-2 py-0.5 bg-surface-raised border border-border rounded-lg text-on-surface-subtle font-code text-[12px]">rPPG</span>
+<span class="px-2 py-0.5 bg-surface-raised border border-border rounded-lg text-on-surface-subtle font-code text-[12px]">Computer Vision</span>
+</div>
+<a class="inline-flex items-center gap-1 font-code text-label text-primary hover:text-primary-hover transition-colors duration-150" href="#projects">
+              Read case study <span>→</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Sub-action -->
+<div class="mt-8 flex justify-start">
+<a class="inline-flex items-center gap-1.5 font-code text-label text-primary hover:text-primary-hover transition-colors duration-150" href="#projects">
+          View all projects <span>→</span>
+</a>
+</div>
+</section>
+<!-- 7. LATEST FROM THE BLOG -->
+<section class="pt-4" id="blog">
+<div class="font-code text-label text-primary mb-2">05 · Blog</div>
+<div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 gap-2">
+<h2 class="font-h2 text-h2 text-on-surface tracking-tight">Latest writing</h2>
+<a class="font-code text-label text-primary hover:text-primary-hover inline-flex items-center gap-1 transition-colors duration-150" href="https://blog.haheng.au" rel="noopener noreferrer" target="_blank">
+          Visit blog.haheng.au <span>↗</span>
+</a>
+</div>
+<!-- 3 Clean List Rows with Subtle Dividers -->
+<div class="border-t border-b border-border divide-y divide-border">
+<!-- Row 1 -->
+<a class="group flex flex-col sm:flex-row sm:items-center justify-between py-4.5 px-2 hover:bg-surface transition-colors duration-150" href="#blog">
+<div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+<span class="font-code text-label text-on-surface-subtle whitespace-nowrap">2025-02-28</span>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors duration-150 font-medium">
+              Building Autonomous AI Agent Pipelines for Content Generation
+            </span>
+</div>
+<span class="font-code text-body-md text-on-surface-subtle group-hover:text-primary group-hover:translate-x-1 transition-all duration-150 self-end sm:self-auto mt-2 sm:mt-0">
+            →
+          </span>
+</a>
+<!-- Row 2 -->
+<a class="group flex flex-col sm:flex-row sm:items-center justify-between py-4.5 px-2 hover:bg-surface transition-colors duration-150" href="#blog">
+<div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+<span class="font-code text-label text-on-surface-subtle whitespace-nowrap">2025-02-14</span>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors duration-150 font-medium">
+              Optimizing PostgreSQL Queries in High-Throughput Node.js Services
+            </span>
+</div>
+<span class="font-code text-body-md text-on-surface-subtle group-hover:text-primary group-hover:translate-x-1 transition-all duration-150 self-end sm:self-auto mt-2 sm:mt-0">
+            →
+          </span>
+</a>
+<!-- Row 3 -->
+<a class="group flex flex-col sm:flex-row sm:items-center justify-between py-4.5 px-2 hover:bg-surface transition-colors duration-150" href="#blog">
+<div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+<span class="font-code text-label text-on-surface-subtle whitespace-nowrap">2025-01-30</span>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors duration-150 font-medium">
+              Extracting Blood Volume Pulse Signals with Computer Vision (rPPG)
+            </span>
+</div>
+<span class="font-code text-body-md text-on-surface-subtle group-hover:text-primary group-hover:translate-x-1 transition-all duration-150 self-end sm:self-auto mt-2 sm:mt-0">
+            →
+          </span>
+</a>
+</div>
+</section>
+<!-- 8. CONTACT SECTION -->
+<section class="pt-4" id="contact">
+<div class="font-code text-label text-primary mb-2">06 · Contact</div>
+<h2 class="font-h2 text-h2 text-on-surface tracking-tight mb-8">Let's work together</h2>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Side (5 cols) -->
+<div class="lg:col-span-5 space-y-6">
+<p class="font-body-md text-body-md text-on-surface-muted leading-relaxed">
+            I'm currently available for Software Engineer and AI Engineer roles. Feel free to reach out directly or schedule a technical chat.
+          </p>
+<!-- Email Copy Box -->
+<div class="p-3 bg-surface border border-border rounded-xl flex items-center justify-between">
+<span class="font-code text-label text-on-surface" id="email-text">gunawanhubert@gmail.com</span>
+<button aria-label="Copy Email Address" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-surface-raised border border-border hover:border-border-strong text-on-surface-muted hover:text-on-surface font-code text-label transition-colors duration-150" onclick="copyEmail()">
+<span class="material-symbols-outlined text-[16px]" data-icon="content_copy" id="copy-icon">content_copy</span>
+<span id="copy-label">Copy</span>
+</button>
+</div>
+<!-- Social Links -->
+<div class="flex items-center gap-3 pt-2">
+<a class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-surface border border-border hover:border-border-strong text-on-surface-muted hover:text-on-surface font-code text-label transition-colors duration-150" href="https://github.com" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+<span>GitHub</span>
+</a>
+<a class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-surface border border-border hover:border-border-strong text-on-surface-muted hover:text-on-surface font-code text-label transition-colors duration-150" href="https://linkedin.com" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined" data-icon="link">link</span>
+<span>LinkedIn</span>
+</a>
+</div>
+</div>
+<!-- Right Side: Form (7 cols) -->
+<div class="lg:col-span-7 bg-surface border border-border rounded-full p-space-lg">
+<form class="space-y-4" onsubmit="handleFormSubmit(event)">
+<div>
+<label class="block font-code text-label text-on-surface-muted mb-1.5" for="name">Name</label>
+<input class="w-full bg-background border border-border-strong rounded-xl px-3.5 py-2.5 text-on-surface font-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary placeholder:text-on-surface-subtle transition-colors duration-150" id="name" placeholder="Alex Turner" required="" type="text"/>
+</div>
+<div>
+<label class="block font-code text-label text-on-surface-muted mb-1.5" for="email">Email</label>
+<input class="w-full bg-background border border-border-strong rounded-xl px-3.5 py-2.5 text-on-surface font-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary placeholder:text-on-surface-subtle transition-colors duration-150" id="email" placeholder="alex@company.com" required="" type="email"/>
+</div>
+<div>
+<label class="block font-code text-label text-on-surface-muted mb-1.5" for="message">Message</label>
+<textarea class="w-full bg-background border border-border-strong rounded-xl px-3.5 py-2.5 text-on-surface font-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary placeholder:text-on-surface-subtle transition-colors duration-150 resize-y" id="message" placeholder="Hello Hubert, we'd love to discuss our backend engineering role..." required="" rows="4"></textarea>
+</div>
+<div class="pt-2 flex items-center justify-between">
+<button class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-primary text-neutral font-code text-label font-semibold hover:bg-primary-hover transition-colors duration-150" type="submit">
+                Send message
+              </button>
+<span class="font-code text-label text-success hidden" id="form-status">Message dispatched successfully.</span>
+</div>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- 9. FOOTER -->
+<footer class="w-full py-space-xl border-t border-border bg-background">
+<div class="max-w-[1120px] mx-auto px-space-lg flex flex-col sm:flex-row justify-between items-center gap-space-md">
+<!-- Left Copyright / Platform credits -->
+<div class="flex items-center gap-2 font-code text-label text-on-surface-muted">
+<span>© 2026 Hubert Gunawan</span>
+<span class="text-on-surface-subtle">·</span>
+<span class="hover:text-on-surface transition-colors duration-150">Built with Next.js on AWS</span>
+</div>
+<!-- Right Navigation Links -->
+<div class="flex items-center gap-5 font-code text-label">
+<a class="text-on-surface-muted hover:text-on-surface transition-colors duration-150" href="#contact">Email</a>
+<a class="text-on-surface-muted hover:text-on-surface transition-colors duration-150" href="https://github.com" rel="noopener noreferrer" target="_blank">GitHub</a>
+<a class="text-on-surface-muted hover:text-on-surface transition-colors duration-150" href="https://linkedin.com" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+<a class="text-on-surface-muted hover:text-on-surface transition-colors duration-150" href="https://blog.haheng.au" rel="noopener noreferrer" target="_blank">Blog</a>
+</div>
+</div>
+</footer>
+<!-- Vanilla Interactions Script -->
+<script>
+    // Copy email to clipboard micro-interaction
+    function copyEmail() {
+      const email = document.getElementById('email-text').innerText;
+      navigator.clipboard.writeText(email).then(() => {
+        const copyLabel = document.getElementById('copy-label');
+        const copyIcon = document.getElementById('copy-icon');
+        copyLabel.innerText = 'Copied!';
+        copyIcon.innerText = 'done';
+        setTimeout(() => {
+          copyLabel.innerText = 'Copy';
+          copyIcon.innerText = 'content_copy';
+        }, 2000);
+      });
+    }
+
+    // Toggle experience details
+    function toggleDetails(id, btn) {
+      const el = document.getElementById(id);
+      const isHidden = el.classList.contains('hidden');
+      const label = btn.querySelector('.label-text');
+      const icon = btn.querySelector('.material-symbols-outlined');
+
+      if (isHidden) {
+        el.classList.remove('hidden');
+        label.innerText = 'Hide details';
+        icon.classList.add('rotate-180');
+      } else {
+        el.classList.add('hidden');
+        label.innerText = 'Show details';
+        icon.classList.remove('rotate-180');
+      }
+    }
+
+    // Contact form submit state handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const status = document.getElementById('form-status');
+      status.classList.remove('hidden');
+      setTimeout(() => {
+        e.target.reset();
+        setTimeout(() => status.classList.add('hidden'), 3500);
+      }, 500);
+    }
+  </script>
+</body></html>

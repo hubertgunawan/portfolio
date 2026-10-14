@@ -1,0 +1,40 @@
+## Problem
+
+A portfolio should prove skills, not just list them. I wanted this site to be built, tested, and deployed the same way I'd build a production system.
+
+## My role
+
+Sole engineer: design, build, infrastructure, and deployment.
+
+## Architecture
+
+<Flow
+  steps={[
+    { label: "GitHub", note: "Source and pull requests" },
+    { label: "GitHub Actions", note: "Lint, type-check, test, build" },
+    { label: "S3", note: "Static export" },
+    { label: "CloudFront", note: "CDN, TLS via ACM" },
+    { label: "Route 53", note: "haheng.au" },
+  ]}
+/>
+
+## Key decisions
+
+- **Static first.** Next.js static export keeps pages fast and keeps the site up even if any API is down.
+- **Content as data.** Experience, skills, and projects live in typed data files; case studies are MDX. The web resume and the home page read from the same source.
+- **Self-hosted on AWS.** S3 + CloudFront instead of a managed platform, with infrastructure as code for reproducible rebuilds.
+- **Build-time integrations.** The latest blog posts are pulled from the blog's RSS feed at build time, with a fallback if the feed is unavailable.
+
+## Tech stack
+
+Next.js · React · TypeScript · Tailwind CSS · MDX · Vitest · GitHub Actions · Docker · AWS (S3, CloudFront, Route 53, ACM)
+
+## Outcome
+
+{/* TODO: add Lighthouse scores and bundle size after launch. */}
+
+A fast, accessible portfolio that doubles as a public code sample.
+
+## Lessons
+
+- Treating a small site like a production service (CI, tests, IaC, monitoring) is the best way to show how I work.

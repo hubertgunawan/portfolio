@@ -1,0 +1,40 @@
+## Problem
+
+The business needed a new web application, built from scratch, that could grow with it and be deployed reliably.
+
+## My role
+
+Senior Software Engineer. I owned the application end to end, from architecture through deployment.
+
+## Architecture
+
+<Flow
+  steps={[
+    { label: "React app", note: "Single-page web client" },
+    { label: "Node.js API", note: "RESTful services" },
+    { label: "Database", note: "SQL / NoSQL via ORM" },
+    { label: "AWS + Kubernetes", note: "Containerized deployment" },
+  ]}
+/>
+
+## Key decisions
+
+- **React front end on a REST API.** A clear contract between client and server let each side change independently.
+- **Docker and Kubernetes on AWS.** Containerized services gave consistent environments and repeatable deploys.
+- **Automated tests.** Unit tests and test automation protected releases from regressions.
+
+## Tech stack
+
+React · Node.js · SQL / NoSQL · Docker · Kubernetes · AWS
+
+## Outcome
+
+The platform went from an empty repository to a production deployment on AWS under my ownership.
+
+{/* TODO: add users, uptime, or other measurable outcomes if available. */}
+
+## Lessons
+
+- Owning a system end to end makes trade-offs visible: decisions in the front end show up in the API, the database, and the deployment.
+
+> Details are kept general because this was internal company software.

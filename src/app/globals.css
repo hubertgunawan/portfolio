@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* Tokens from DESIGN.md ("Dark Engineer"). */
+@theme {
+  --color-background: #0b0d10;
+  --color-surface: #111419;
+  --color-surface-raised: #171b21;
+  --color-border: #232830;
+  --color-border-strong: #323844;
+  --color-fg: #e6e8eb;
+  --color-muted: #9ba3ae;
+  --color-subtle: #6b7380;
+  --color-primary: #5b9dff;
+  --color-primary-hover: #7db2ff;
+  --color-primary-muted: #16243a;
+  --color-on-primary: #0a0c10;
+  --color-success: #3fb950;
+  --color-warning: #d29922;
+  --color-error: #f85149;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --text-display: 3.5rem;
+  --text-display--line-height: 1.1;
+  --text-display--letter-spacing: -0.02em;
+  --text-h1: 2.5rem;
+  --text-h1--line-height: 1.15;
+  --text-h1--letter-spacing: -0.02em;
+  --text-h2: 1.75rem;
+  --text-h2--line-height: 1.25;
+  --text-h2--letter-spacing: -0.01em;
+  --text-h3: 1.25rem;
+  --text-h3--line-height: 1.35;
+  --text-label: 0.8125rem;
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.02em;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-background text-fg font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-primary-muted text-primary;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+@utility container-page {
+  @apply mx-auto w-full max-w-[1120px] px-6 md:px-8;
+}
+
+/* Case study / long-form prose */
+@utility prose-case {
+  @apply max-w-[680px] text-muted leading-[1.7];
+
+  & > h2 {
+    @apply mt-14 mb-4 scroll-mt-24 text-h2 font-semibold text-fg;
+  }
+  & > h2:first-child {
+    @apply mt-0;
+  }
+  & > h3 {
+    @apply mt-8 mb-3 text-h3 font-semibold text-fg;
+  }
+  & > p {
+    @apply my-4;
+  }
+  & > ul {
+    @apply my-4 list-disc space-y-2 pl-5 marker:text-subtle;
+  }
+  & > ol {
+    @apply my-4 list-decimal space-y-2 pl-5 marker:text-subtle;
+  }
+  & strong {
+    @apply font-semibold text-fg;
+  }
+  & a {
+    @apply text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary;
+  }
+  & code {
+    @apply rounded-sm bg-surface-raised px-1.5 py-0.5 font-mono text-[0.875em] text-fg;
+  }
+  & > blockquote {
+    @apply my-8 border-l-2 border-border-strong pl-4 text-sm text-subtle;
+  }
+  & > blockquote p {
+    @apply my-0;
+  }
+}

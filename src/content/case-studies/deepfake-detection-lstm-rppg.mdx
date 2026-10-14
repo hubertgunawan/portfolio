@@ -1,0 +1,46 @@
+## Problem
+
+Deepfake videos can look convincing frame by frame. But real faces carry a faint physiological signal: skin colour changes slightly with each heartbeat. Generated faces usually don't reproduce that signal consistently. My thesis asked whether that signal could be used to tell real videos from fakes.
+
+## My role
+
+Undergraduate thesis, Bachelor of Science in Computer Science (graduated Magna Cum Laude, GPA 3.89 / 4.00). I built the full pipeline: data preparation, feature extraction, model training, and evaluation.
+
+## Architecture
+
+<Flow
+  steps={[
+    { label: "Video", note: "Real and deepfake clips" },
+    { label: "Face & skin ROI", note: "Detect face, select skin regions" },
+    { label: "rPPG signal", note: "Extract colour change over time" },
+    { label: "LSTM", note: "Learn temporal patterns" },
+    { label: "Real / fake", note: "Classification output" },
+  ]}
+/>
+
+## Model design
+
+- **rPPG features.** Remote photoplethysmography (rPPG) estimates a pulse signal from tiny colour changes in facial skin across video frames.
+- **LSTM classifier.** Because the signal is a time series, an LSTM network learns how it evolves over time and classifies each clip as real or fake.
+
+{/* TODO: add dataset name and size, preprocessing details, LSTM layer configuration, and training setup. */}
+
+## Evaluation & metrics
+
+{/* TODO: add accuracy / precision / recall / F1 or AUC on the test set, and any comparison with baselines. */}
+
+The model was evaluated on held-out real and deepfake videos.
+
+## Limitations & safety
+
+- rPPG is sensitive to lighting, compression, motion, and video resolution, so performance can drop on low-quality footage.
+- Newer generation methods may learn to imitate physiological signals, so this should be one signal among several, not a final verdict.
+
+## Tech stack
+
+Deep learning (LSTM) · Computer vision · rPPG signal analysis
+
+## Lessons
+
+- Good features matter as much as model choice: a clean pulse signal made the classifier's job much easier.
+- Evaluation needs to reflect real-world video quality, not just clean benchmark clips.

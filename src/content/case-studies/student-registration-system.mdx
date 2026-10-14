@@ -1,0 +1,39 @@
+## Problem
+
+New student registration and administrative records were handled with paperwork and disconnected tools. The university needed a single web application for registration and record management.
+
+## My role
+
+Assistant Lecturer. I designed and built the web application.
+
+## Architecture
+
+<Flow
+  steps={[
+    { label: "Applicants", note: "Online registration forms" },
+    { label: "Web application", note: "Validation and workflows" },
+    { label: "Database", note: "Student and admin records" },
+    { label: "Admin staff", note: "Review and manage records" },
+  ]}
+/>
+
+## Key decisions
+
+- **One system for both sides.** Applicants and administrative staff worked from the same records, so there was a single source of truth.
+- **Validation at entry.** Checking data when it was submitted reduced clean-up work for staff later.
+
+## Tech stack
+
+Full-stack web application · SQL database
+
+{/* TODO: add the specific languages and frameworks used. */}
+
+## Outcome
+
+Registration and administrative record management moved into a single web application.
+
+{/* TODO: add number of students / staff using it, if known. */}
+
+## Lessons
+
+- Administrative software is mostly about workflows. Talking to the staff who use it shaped the design more than any technical choice.

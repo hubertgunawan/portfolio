@@ -1,0 +1,55 @@
+## Problem
+
+Writing consistently is hard to sustain alongside other work. I wanted a blog about AI engineering and developer tools that publishes on a schedule, and I wanted to treat it as a real production system: automated, observable, and safe to leave running.
+
+## My role
+
+Sole engineer. I designed the agent pipeline, the publishing flow, and the site at [blog.haheng.au](https://blog.haheng.au).
+
+## Architecture
+
+<Flow
+  steps={[
+    { label: "Scheduler", note: "Triggers a run on a fixed schedule" },
+    { label: "Research agent", note: "Finds and summarises a timely topic" },
+    { label: "Writing agent", note: "Drafts the post in the blog's voice" },
+    { label: "Review step", note: "Checks quality and guardrails" },
+    { label: "Publish", note: "Post, cover image, RSS feed" },
+  ]}
+/>
+
+The blog itself is a Next.js site with an RSS feed per language, which is also what this portfolio reads to show the latest posts.
+
+## Agent design
+
+- **Separate roles.** Research, writing, and review are separate steps, so each prompt stays focused and each output can be checked on its own.
+- **Structured hand-offs.** Each step passes structured output to the next instead of free text, which makes failures easier to detect.
+- **Bilingual output.** Posts are published in English and Indonesian.
+
+{/* TODO: name the models, APIs, and agent framework used (PRD §13, Q10). */}
+
+## Key decisions
+
+- **Treat it like a service, not a script.** Scheduled runs, logs, and clear failure states, so a bad run doesn't silently publish.
+- **Guardrails before publish.** A review step sits between generation and publishing.
+- **Static output.** Posts are published as static pages, so the site stays fast and cheap to host.
+
+## Evaluation & metrics
+
+{/* TODO: add real numbers, e.g. posts published, run success rate, cost per post, review rejection rate. */}
+
+The pipeline publishes new posts on [blog.haheng.au](https://blog.haheng.au) on a regular schedule.
+
+## Limitations & safety
+
+- LLMs can state things confidently that are wrong. Posts are framed around sources and practical takeaways, and the review step is there to catch obvious errors.
+- Automated content needs a kill switch. Runs can be paused without touching the published site.
+
+## Tech stack
+
+AI agents · LLM APIs · Next.js · Scheduled jobs · RSS
+
+## Lessons
+
+- Most of the engineering in an agent system is around the model: scheduling, validation, retries, and deciding when *not* to publish.
+- Small, single-purpose agent steps are much easier to debug than one large prompt.
